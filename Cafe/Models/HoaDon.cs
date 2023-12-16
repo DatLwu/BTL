@@ -12,7 +12,11 @@ namespace Cafe.Models
         [ForeignKey("KhachHangID")]
         public KhachHang? KhachHang {get; set;}
         public string NhanVienID { get; set; }
-        public string SanPhamId { get; set; }
+        [ForeignKey("NhanVienID")]
+        public NhanVien? NhanVien {get; set;}
+        public string SanPhamID { get; set; }
+        [ForeignKey("SanPhamID")]
+        public SanPham? SanPham {get; set;}
         public string SoLuong { get; set; }
         public string Gia { get; set; }
         [DataType(DataType.DateTime)]

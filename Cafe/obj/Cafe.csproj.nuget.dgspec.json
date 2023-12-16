@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BTL_PTPMQL\\Cafe\\Cafe.csproj": {}
+    "E:\\baitaplonc#\\BTL\\Cafe\\Cafe.csproj": {}
   },
   "projects": {
-    "D:\\BTL_PTPMQL\\Cafe\\Cafe.csproj": {
+    "E:\\baitaplonc#\\BTL\\Cafe\\Cafe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BTL_PTPMQL\\Cafe\\Cafe.csproj",
+        "projectUniqueName": "E:\\baitaplonc#\\BTL\\Cafe\\Cafe.csproj",
         "projectName": "Cafe",
-        "projectPath": "D:\\BTL_PTPMQL\\Cafe\\Cafe.csproj",
-        "packagesPath": "C:\\Users\\Win10\\.nuget\\packages\\",
-        "outputPath": "D:\\BTL_PTPMQL\\Cafe\\obj\\",
+        "projectPath": "E:\\baitaplonc#\\BTL\\Cafe\\Cafe.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "E:\\baitaplonc#\\BTL\\Cafe\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Win10\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -38,6 +38,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -65,6 +69,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "X.PagedList.Mvc.Core": {
+              "target": "Package",
+              "version": "[8.4.7, )"
             }
           },
           "imports": [

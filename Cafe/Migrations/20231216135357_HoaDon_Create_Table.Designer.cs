@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cafe.Migrations
 {
     [DbContext(typeof(ApplicationDbcontext))]
-    [Migration("20231216124246_HoaDon_Create_Table")]
+    [Migration("20231216135357_HoaDon_Create_Table")]
     partial class HoaDon_Create_Table
     {
         /// <inheritdoc />
@@ -40,7 +40,7 @@ namespace Cafe.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("SanPhamId")
+                    b.Property<string>("SanPhamID")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -51,6 +51,10 @@ namespace Cafe.Migrations
                     b.HasKey("HoaDonID");
 
                     b.HasIndex("KhachHangID");
+
+                    b.HasIndex("NhanVienID");
+
+                    b.HasIndex("SanPhamID");
 
                     b.ToTable("HoaDons");
                 });
@@ -81,6 +85,53 @@ namespace Cafe.Migrations
                     b.ToTable("KhachHangs");
                 });
 
+            modelBuilder.Entity("Cafe.Models.NhanVien", b =>
+                {
+                    b.Property<string>("NhanVienID")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NhanVienName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SDT")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("NhanVienID");
+
+                    b.ToTable("NhanViens");
+                });
+
+            modelBuilder.Entity("Cafe.Models.SanPham", b =>
+                {
+                    b.Property<string>("SanPhamID")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Gia")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SanPhamName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SoLuong")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("SanPhamID");
+
+                    b.ToTable("SanPhams");
+                });
+
             modelBuilder.Entity("Cafe.Models.HoaDon", b =>
                 {
                     b.HasOne("Cafe.Models.KhachHang", "KhachHang")
@@ -89,10 +140,36 @@ namespace Cafe.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Cafe.Models.NhanVien", "NhanVien")
+                        .WithMany("HoaDon")
+                        .HasForeignKey("NhanVienID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Cafe.Models.SanPham", "SanPham")
+                        .WithMany("HoaDon")
+                        .HasForeignKey("SanPhamID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("KhachHang");
+
+                    b.Navigation("NhanVien");
+
+                    b.Navigation("SanPham");
                 });
 
             modelBuilder.Entity("Cafe.Models.KhachHang", b =>
+                {
+                    b.Navigation("HoaDon");
+                });
+
+            modelBuilder.Entity("Cafe.Models.NhanVien", b =>
+                {
+                    b.Navigation("HoaDon");
+                });
+
+            modelBuilder.Entity("Cafe.Models.SanPham", b =>
                 {
                     b.Navigation("HoaDon");
                 });

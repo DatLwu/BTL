@@ -22,7 +22,7 @@ namespace Cafe.Controllers
         // GET: HoaDon
         public async Task<IActionResult> Index()
         {
-            var applicationDbcontext = _context.HoaDon.Include(h => h.KhachHang);
+            var applicationDbcontext = _context.HoaDon.Include(h => h.KhachHang).Include(h => h.NhanVien).Include(h => h.SanPham);
             return View(await applicationDbcontext.ToListAsync());
         }
 
@@ -36,6 +36,8 @@ namespace Cafe.Controllers
 
             var hoaDon = await _context.HoaDon
                 .Include(h => h.KhachHang)
+                .Include(h => h.NhanVien)
+                .Include(h => h.SanPham)
                 .FirstOrDefaultAsync(m => m.HoaDonID == id);
             if (hoaDon == null)
             {
@@ -49,6 +51,8 @@ namespace Cafe.Controllers
         public IActionResult Create()
         {
             ViewData["KhachHangID"] = new SelectList(_context.KhachHang, "KhachHangID", "KhachHangID");
+            ViewData["NhanVienID"] = new SelectList(_context.NhanVien, "NhanVienID", "NhanVienID");
+            ViewData["SanPhamID"] = new SelectList(_context.SanPham, "SanPhamID", "SanPhamID");
             return View();
         }
 
@@ -57,7 +61,7 @@ namespace Cafe.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HoaDonID,KhachHangID,NhanVienID,SanPhamId,SoLuong,Gia,CreateDate")] HoaDon hoaDon)
+        public async Task<IActionResult> Create([Bind("HoaDonID,KhachHangID,NhanVienID,SanPhamID,SoLuong,Gia,CreateDate")] HoaDon hoaDon)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +70,8 @@ namespace Cafe.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["KhachHangID"] = new SelectList(_context.KhachHang, "KhachHangID", "KhachHangID", hoaDon.KhachHangID);
+            ViewData["NhanVienID"] = new SelectList(_context.NhanVien, "NhanVienID", "NhanVienID", hoaDon.NhanVienID);
+            ViewData["SanPhamID"] = new SelectList(_context.SanPham, "SanPhamID", "SanPhamID", hoaDon.SanPhamID);
             return View(hoaDon);
         }
 
@@ -83,6 +89,8 @@ namespace Cafe.Controllers
                 return NotFound();
             }
             ViewData["KhachHangID"] = new SelectList(_context.KhachHang, "KhachHangID", "KhachHangID", hoaDon.KhachHangID);
+            ViewData["NhanVienID"] = new SelectList(_context.NhanVien, "NhanVienID", "NhanVienID", hoaDon.NhanVienID);
+            ViewData["SanPhamID"] = new SelectList(_context.SanPham, "SanPhamID", "SanPhamID", hoaDon.SanPhamID);
             return View(hoaDon);
         }
 
@@ -91,7 +99,7 @@ namespace Cafe.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("HoaDonID,KhachHangID,NhanVienID,SanPhamId,SoLuong,Gia,CreateDate")] HoaDon hoaDon)
+        public async Task<IActionResult> Edit(string id, [Bind("HoaDonID,KhachHangID,NhanVienID,SanPhamID,SoLuong,Gia,CreateDate")] HoaDon hoaDon)
         {
             if (id != hoaDon.HoaDonID)
             {
@@ -119,6 +127,8 @@ namespace Cafe.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["KhachHangID"] = new SelectList(_context.KhachHang, "KhachHangID", "KhachHangID", hoaDon.KhachHangID);
+            ViewData["NhanVienID"] = new SelectList(_context.NhanVien, "NhanVienID", "NhanVienID", hoaDon.NhanVienID);
+            ViewData["SanPhamID"] = new SelectList(_context.SanPham, "SanPhamID", "SanPhamID", hoaDon.SanPhamID);
             return View(hoaDon);
         }
 
@@ -132,6 +142,8 @@ namespace Cafe.Controllers
 
             var hoaDon = await _context.HoaDon
                 .Include(h => h.KhachHang)
+                .Include(h => h.NhanVien)
+                .Include(h => h.SanPham)
                 .FirstOrDefaultAsync(m => m.HoaDonID == id);
             if (hoaDon == null)
             {
