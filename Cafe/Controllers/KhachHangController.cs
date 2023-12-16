@@ -10,22 +10,22 @@ using Cafe.Models;
 
 namespace Cafe.Controllers
 {
-    public class AccountController : Controller
+    public class KhachHangController : Controller
     {
         private readonly ApplicationDbcontext _context;
 
-        public AccountController(ApplicationDbcontext context)
+        public KhachHangController(ApplicationDbcontext context)
         {
             _context = context;
         }
 
-        // GET: Account
+        // GET: KhachHang
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Account.ToListAsync());
+            return View(await _context.KhachHang.ToListAsync());
         }
 
-        // GET: Account/Details/5
+        // GET: KhachHang/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace Cafe.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Account
-                .FirstOrDefaultAsync(m => m.UserName == id);
-            if (account == null)
+            var khachHang = await _context.KhachHang
+                .FirstOrDefaultAsync(m => m.KhachHangID == id);
+            if (khachHang == null)
             {
                 return NotFound();
             }
 
-            return View(account);
+            return View(khachHang);
         }
 
-        // GET: Account/Create
+        // GET: KhachHang/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Account/Create
+        // POST: KhachHang/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserName,PassWord")] Account account)
+        public async Task<IActionResult> Create([Bind("KhachHangID,KhachHangName,Address,SDT,Email")] KhachHang khachHang)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(account);
+                _context.Add(khachHang);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(account);
+            return View(khachHang);
         }
 
-        // GET: Account/Edit/5
+        // GET: KhachHang/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace Cafe.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Account.FindAsync(id);
-            if (account == null)
+            var khachHang = await _context.KhachHang.FindAsync(id);
+            if (khachHang == null)
             {
                 return NotFound();
             }
-            return View(account);
+            return View(khachHang);
         }
 
-        // POST: Account/Edit/5
+        // POST: KhachHang/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("UserName,PassWord")] Account account)
+        public async Task<IActionResult> Edit(string id, [Bind("KhachHangID,KhachHangName,Address,SDT,Email")] KhachHang khachHang)
         {
-            if (id != account.UserName)
+            if (id != khachHang.KhachHangID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace Cafe.Controllers
             {
                 try
                 {
-                    _context.Update(account);
+                    _context.Update(khachHang);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AccountExists(account.UserName))
+                    if (!KhachHangExists(khachHang.KhachHangID))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace Cafe.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(account);
+            return View(khachHang);
         }
 
-        // GET: Account/Delete/5
+        // GET: KhachHang/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -124,34 +124,34 @@ namespace Cafe.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Account
-                .FirstOrDefaultAsync(m => m.UserName == id);
-            if (account == null)
+            var khachHang = await _context.KhachHang
+                .FirstOrDefaultAsync(m => m.KhachHangID == id);
+            if (khachHang == null)
             {
                 return NotFound();
             }
 
-            return View(account);
+            return View(khachHang);
         }
 
-        // POST: Account/Delete/5
+        // POST: KhachHang/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var account = await _context.Account.FindAsync(id);
-            if (account != null)
+            var khachHang = await _context.KhachHang.FindAsync(id);
+            if (khachHang != null)
             {
-                _context.Account.Remove(account);
+                _context.KhachHang.Remove(khachHang);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AccountExists(string id)
+        private bool KhachHangExists(string id)
         {
-            return _context.Account.Any(e => e.UserName == id);
+            return _context.KhachHang.Any(e => e.KhachHangID == id);
         }
     }
 }

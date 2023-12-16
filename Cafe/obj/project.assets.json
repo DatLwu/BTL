@@ -8017,11 +8017,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BTL_PTPMQL\\Cafe\\Cafe.csproj",
+      "projectUniqueName": "d:\\BTL_PTPMQL\\Cafe\\Cafe.csproj",
       "projectName": "Cafe",
-      "projectPath": "D:\\BTL_PTPMQL\\Cafe\\Cafe.csproj",
+      "projectPath": "d:\\BTL_PTPMQL\\Cafe\\Cafe.csproj",
       "packagesPath": "C:\\Users\\Win10\\.nuget\\packages\\",
-      "outputPath": "D:\\BTL_PTPMQL\\Cafe\\obj\\",
+      "outputPath": "d:\\BTL_PTPMQL\\Cafe\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Win10\\AppData\\Roaming\\NuGet\\NuGet.Config"

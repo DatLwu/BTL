@@ -10,22 +10,23 @@ using Cafe.Models;
 
 namespace Cafe.Controllers
 {
-    public class BillController : Controller
+    public class HoaDonController : Controller
     {
         private readonly ApplicationDbcontext _context;
 
-        public BillController(ApplicationDbcontext context)
+        public HoaDonController(ApplicationDbcontext context)
         {
             _context = context;
         }
 
-        // GET: Bill
+        // GET: HoaDon
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Bill.ToListAsync());
+            var applicationDbcontext = _context.HoaDon.Include(h => h.KhachHang);
+            return View(await applicationDbcontext.ToListAsync());
         }
 
-        // GET: Bill/Details/5
+        // GET: HoaDon/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -33,39 +34,42 @@ namespace Cafe.Controllers
                 return NotFound();
             }
 
-            var bill = await _context.Bill
-                .FirstOrDefaultAsync(m => m.BillId == id);
-            if (bill == null)
+            var hoaDon = await _context.HoaDon
+                .Include(h => h.KhachHang)
+                .FirstOrDefaultAsync(m => m.HoaDonID == id);
+            if (hoaDon == null)
             {
                 return NotFound();
             }
 
-            return View(bill);
+            return View(hoaDon);
         }
 
-        // GET: Bill/Create
+        // GET: HoaDon/Create
         public IActionResult Create()
         {
+            ViewData["KhachHangID"] = new SelectList(_context.KhachHang, "KhachHangID", "KhachHangID");
             return View();
         }
 
-        // POST: Bill/Create
+        // POST: HoaDon/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BillId,TenKH,CreateDate,MaNV")] Bill bill)
+        public async Task<IActionResult> Create([Bind("HoaDonID,KhachHangID,NhanVienID,SanPhamId,SoLuong,Gia,CreateDate")] HoaDon hoaDon)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(bill);
+                _context.Add(hoaDon);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(bill);
+            ViewData["KhachHangID"] = new SelectList(_context.KhachHang, "KhachHangID", "KhachHangID", hoaDon.KhachHangID);
+            return View(hoaDon);
         }
 
-        // GET: Bill/Edit/5
+        // GET: HoaDon/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -73,22 +77,23 @@ namespace Cafe.Controllers
                 return NotFound();
             }
 
-            var bill = await _context.Bill.FindAsync(id);
-            if (bill == null)
+            var hoaDon = await _context.HoaDon.FindAsync(id);
+            if (hoaDon == null)
             {
                 return NotFound();
             }
-            return View(bill);
+            ViewData["KhachHangID"] = new SelectList(_context.KhachHang, "KhachHangID", "KhachHangID", hoaDon.KhachHangID);
+            return View(hoaDon);
         }
 
-        // POST: Bill/Edit/5
+        // POST: HoaDon/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("BillId,TenKH,CreateDate,MaNV")] Bill bill)
+        public async Task<IActionResult> Edit(string id, [Bind("HoaDonID,KhachHangID,NhanVienID,SanPhamId,SoLuong,Gia,CreateDate")] HoaDon hoaDon)
         {
-            if (id != bill.BillId)
+            if (id != hoaDon.HoaDonID)
             {
                 return NotFound();
             }
@@ -97,12 +102,12 @@ namespace Cafe.Controllers
             {
                 try
                 {
-                    _context.Update(bill);
+                    _context.Update(hoaDon);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BillExists(bill.BillId))
+                    if (!HoaDonExists(hoaDon.HoaDonID))
                     {
                         return NotFound();
                     }
@@ -113,10 +118,11 @@ namespace Cafe.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(bill);
+            ViewData["KhachHangID"] = new SelectList(_context.KhachHang, "KhachHangID", "KhachHangID", hoaDon.KhachHangID);
+            return View(hoaDon);
         }
 
-        // GET: Bill/Delete/5
+        // GET: HoaDon/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -124,34 +130,35 @@ namespace Cafe.Controllers
                 return NotFound();
             }
 
-            var bill = await _context.Bill
-                .FirstOrDefaultAsync(m => m.BillId == id);
-            if (bill == null)
+            var hoaDon = await _context.HoaDon
+                .Include(h => h.KhachHang)
+                .FirstOrDefaultAsync(m => m.HoaDonID == id);
+            if (hoaDon == null)
             {
                 return NotFound();
             }
 
-            return View(bill);
+            return View(hoaDon);
         }
 
-        // POST: Bill/Delete/5
+        // POST: HoaDon/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var bill = await _context.Bill.FindAsync(id);
-            if (bill != null)
+            var hoaDon = await _context.HoaDon.FindAsync(id);
+            if (hoaDon != null)
             {
-                _context.Bill.Remove(bill);
+                _context.HoaDon.Remove(hoaDon);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BillExists(string id)
+        private bool HoaDonExists(string id)
         {
-            return _context.Bill.Any(e => e.BillId == id);
+            return _context.HoaDon.Any(e => e.HoaDonID == id);
         }
     }
 }
