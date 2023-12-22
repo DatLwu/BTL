@@ -1,65 +1,70 @@
 @model IEnumerable<Cafe.Models.HoaDon>
-
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
 @{
-    ViewData["Title"] = "Index";
+    ViewBag.Title = "Index";
 }
 
-<h1>Index</h1>
+<div class="w3-container">
+    <div class="w3-row">
+        <h1>Index</h1>
+        <a asp-action="Create" class="w3-btn w3-border w3-border-blue w3-round w3-tiny w3-horver-blue">+ Add new</a>
+        <a asp-action="Download" class="w3-btn w3-border w3-border-blue w3-round w3-right w3-tiny w3-horver-blue">Download</a>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.KhachHang)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NhanVien)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SanPham)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SoLuong)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Gia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreateDate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.KhachHang.KhachHangID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NhanVien.NhanVienID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SanPham.SanPhamID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SoLuong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.HoaDonID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.HoaDonID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.HoaDonID">Delete</a>
-            </td>
-        </tr>
+    </div>
+    <hr/>
+    <table class="w3-table-all w3-card-4 w3-centered">
+        <thead>
+            <tr class="w3-blue">
+                <th class="w3-col l1">HoaDonID</th>
+                <th class="w3-col l1">KhachHangID</th>
+                <th class="w3-col l1">NhanVienID</th>
+                <th class="w3-col l1">SanPhamID</th>
+                <th class="w3-col l1">SoLuong</th>
+                <th class="w3-col l2">Gia</th>
+                <th class="w3-col l3">CreateDate</th>
+                <th class="w3-col l2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="w3-col l1">@item.HoaDonID</td>
+                    <td class="w3-col l1">@item.KhachHangID</td>
+                    <td class="w3-col l1">@item.NhanVienID</td>
+                    <td class="w3-col l1">@item.SanPhamID</td>
+                    <td class="w3-col l1">@item.SoLuong</td>
+                    <td class="w3-col l2">@item.Gia</td>
+                    <td class="w3-col l3">@item.CreateDate</td>
+                    <td class="w3-col l2">
+                        <a asp-action="Edit" asp-route-id="@item.HoaDonID" class="w3-button w3-green w3-round-large w3-small"><i class="fa fa-edit"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.HoaDonID" class="w3-button w3-red w3-round-large w3-small"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@using (Html.BeginForm("Index", "HoaDon", FormMethod.Get, new { id="form1"})){
+    <div class="row">
+        <div class="col-md-11">
+            @Html.PagedListPager((IPagedList) Model, page => Url.Action("Index", new {page = page,
+            pageSize= ViewBag.psize}), 
+            new X.PagedList.Web.Common.PagedListRenderOptions { LiElementClasses = new string[] {"page-item"}, 
+            PageClasses = new string[] { "page-link" }})
+        </div>
+        <div class="col-md-1">
+            @Html.DropDownList("pageSize", null, new {@class="form-select"})
+        </div>
+    </div>
+
 }
-    </tbody>
-</table>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#pagesize").change(function(){
+            $("#form1").submit();
+        });
+    });
+</script>

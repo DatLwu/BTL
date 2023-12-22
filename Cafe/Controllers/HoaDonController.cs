@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Cafe.Data;
 using Cafe.Models;
+using Cafe.Models.Process;
+using OfficeOpenXml;
+using X.PagedList;
 
 namespace Cafe.Controllers
 {
@@ -18,6 +21,7 @@ namespace Cafe.Controllers
         {
             _context = context;
         }
+        private ExcelProcess _excelPro = new ExcelProcess();
 
         // GET: HoaDon
         public async Task<IActionResult> Index()
@@ -171,6 +175,84 @@ namespace Cafe.Controllers
         private bool HoaDonExists(string id)
         {
             return _context.HoaDon.Any(e => e.HoaDonID == id);
+        }
+        public async Task<IActionResult> Upload(IFormFile file)
+        {
+            if (file!=null)
+                {
+                    string fileExtension = Path.GetExtension(file.FileName);
+                    if (fileExtension != ".xls" && fileExtension != ".xlsx")
+                    {
+                        ModelState.AddModelError("", "Please choose excel file to upload!");
+                    }
+                    else
+                    {
+                        //rename file when upload to server
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory() + "/Uploads/Excels", "File" + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Millisecond + fileExtension);
+                        var fileLocation = new FileInfo(filePath).ToString();
+                        if (file.Length > 0)
+                        {
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                //save file to server
+                                await file.CopyToAsync(stream);
+                                //read data from file and write to database
+                                var dt = _excelPro.ExcelToDataTable(fileLocation);
+                                for(int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var hd = new HoaDon();
+                                    hd.HoaDonID =dt.Rows[i][0].ToString();
+                                    hd.KhachHangID = dt.Rows[i][1].ToString();
+                                    hd.NhanVienID = dt.Rows[i][2].ToString();
+                                    hd.SanPhamID = dt.Rows[i][3].ToString();
+                                    hd.SoLuong = dt.Rows[i][4].ToString();
+                                    hd.Gia = dt.Rows[i][5].ToString();
+                                    // hd.CreateDate = dt.Rows[i][6].ToString();
+
+                                    _context.Add(hd);
+                                }
+                                await _context.SaveChangesAsync();
+                                return RedirectToAction(nameof(Index));
+                            }
+                        }
+                    }
+                }
+            
+            return View();
+        }  
+         public IActionResult Download()
+        {
+            var fileName = "HoaDonList.xlsx";
+            using(ExcelPackage excelPackage = new ExcelPackage())
+            {
+                ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets.Add("Sheet 1");
+                excelWorksheet.Cells["A1"].Value = "HoaDonID";
+                excelWorksheet.Cells["B1"].Value = "KhachHangID";
+                excelWorksheet.Cells["C1"].Value = "NhanVienID";
+                excelWorksheet.Cells["D1"].Value = "SanPhamID";
+                excelWorksheet.Cells["E1"].Value = "SoLuong";
+                excelWorksheet.Cells["F1"].Value = "Gia";
+                excelWorksheet.Cells["G1"].Value = "CreateDate";
+
+                var hdList = _context.HoaDon.ToList();
+                excelWorksheet.Cells["A2"].LoadFromCollection(hdList);
+                var stream = new MemoryStream(excelPackage.GetAsByteArray());
+                return File(stream,"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",fileName);
+            }
+        }  
+        public async Task<IActionResult> Index(int? page, int? PageSize){
+            ViewBag.PageSize= new List<SelectListItem>(){
+                new SelectListItem() { Value="3", Text="3"},
+                new SelectListItem() { Value="5", Text="5"},
+                new SelectListItem() { Value="10", Text="10"},
+                new SelectListItem() { Value="15", Text="15"},
+                new SelectListItem() { Value="25", Text="25"},
+                new SelectListItem() { Value="50", Text="50"},
+            };
+            int pagesize = (PageSize ?? 3);
+            ViewBag.psize= pagesize;
+            var model = _context.KhachHang.ToList().ToPagedList(page ?? 1, pagesize);
+            return View(model);
         }
     }
 }
