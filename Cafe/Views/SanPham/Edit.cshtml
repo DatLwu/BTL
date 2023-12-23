@@ -1,8 +1,74 @@
+
 @model Cafe.Models.SanPham
 
 @{
     ViewData["Title"] = "Edit";
 }
+
+<style>
+    /* CSS cho form và bảng */
+    body {
+        font-family: Arial, sans-serif; /* Font chữ */
+        background-color: #f5f5f5; /* Màu nền */
+        color: #333; /* Màu chữ */
+    }
+
+    h1 {
+        color: #654321; /* Màu nâu */
+    }
+
+    /* Form chỉnh sửa */
+    form {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #fff; /* Màu nền form */
+        border: 2px solid #654321; /* Viền nâu */
+        border-radius: 5px;
+    }
+
+    /* Định dạng label và input */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Nút Save */
+    input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #654321; /* Màu nâu */
+        color: #fff; /* Màu chữ trắng */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #543; /* Màu nâu nhạt khi hover */
+    }
+
+    /* Link Back to List */
+    a {
+        color: #654321; /* Màu nâu cho link */
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
 
 <h1>Edit</h1>
 

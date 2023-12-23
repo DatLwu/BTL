@@ -554,3 +554,11 @@ E:\baitaplonc#\BTL\Cafe\obj\Debug\net8.0\refint\Cafe.dll
 E:\baitaplonc#\BTL\Cafe\obj\Debug\net8.0\Cafe.pdb
 E:\baitaplonc#\BTL\Cafe\obj\Debug\net8.0\Cafe.genruntimeconfig.cache
 E:\baitaplonc#\BTL\Cafe\obj\Debug\net8.0\ref\Cafe.dll
+E:\baitaplonc#\BTL\Cafe\bin\Debug\net8.0\EPPlus.dll
+E:\baitaplonc#\BTL\Cafe\bin\Debug\net8.0\EPPlus.Interfaces.dll
+E:\baitaplonc#\BTL\Cafe\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+E:\baitaplonc#\BTL\Cafe\bin\Debug\net8.0\JetBrains.Annotations.dll
+E:\baitaplonc#\BTL\Cafe\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+E:\baitaplonc#\BTL\Cafe\bin\Debug\net8.0\X.PagedList.dll
+E:\baitaplonc#\BTL\Cafe\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
+E:\baitaplonc#\BTL\Cafe\obj\Debug\net8.0\Cafe.MvcApplicationPartsAssemblyInfo.cs
