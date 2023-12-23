@@ -4,56 +4,69 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>HoaDon</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="HoaDonID" class="control-label"></label>
-                <input asp-for="HoaDonID" class="form-control" />
-                <span asp-validation-for="HoaDonID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="KhachHangID" class="control-label"></label>
-                <select asp-for="KhachHangID" class ="form-control" asp-items="ViewBag.KhachHangID"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="NhanVienID" class="control-label"></label>
-                <select asp-for="NhanVienID" class ="form-control" asp-items="ViewBag.NhanVienID"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="SanPhamID" class="control-label"></label>
-                <select asp-for="SanPhamID" class ="form-control" asp-items="ViewBag.SanPhamID"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoLuong" class="control-label"></label>
-                <input asp-for="SoLuong" class="form-control" />
-                <span asp-validation-for="SoLuong" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Gia" class="control-label"></label>
-                <input asp-for="Gia" class="form-control" />
-                <span asp-validation-for="Gia" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreateDate" class="control-label"></label>
-                <input asp-for="CreateDate" class="form-control" />
-                <span asp-validation-for="CreateDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+<div class="w3-row">
+    <H1><b>HoaDon/</b>create</H1>
+</div>
+<hr>
+<div class="max-width-40 ud-center">
+    <div class=" w3-container w3-teal">
+        <h2>Create new HoaDon</h2>
+       <form asp-action="Upload" enctype="multipart/form-data">
+            <input type="file" name="file" class="col-sm-4">
+            <input type="submit" value="Upload" class="btn btn-primary">
         </form>
     </div>
+    <form asp-action="Create" class="w3-container w3-card-4 w3-padding">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="w3-row">
+            <div class="w3-col l2">
+                <label asp-for="HoaDonID" class="control-label"></label>
+                <input asp-for="HoaDonID" class="w3-input w3-border w3-border-blue w3-round" />
+                <span asp-validation-for="HoaDonID" class="text-danger"></span>
+            </div>
+
+            <div class="w3-col l9 w3-right">
+                <label asp-for="SanPhamID" class="control-label"></label>
+                <input asp-for="SanPhamID" class="w3-input w3-border w3-border-blue w3-round" />
+                <span asp-validation-for="SanPhamID" class="text-danger"></span>
+            </div>
+
+            <div class="w3-col l2 ">
+                <label asp-for="KhachHangID" class="control-label"></label>
+                <input asp-for="KhachHangID" class="w3-input w3-border w3-border-blue w3-round" />
+                <span asp-validation-for="KhachHangID" class="text-danger"></span>
+            </div>
+            <div class="w3-col l9 w3-right">
+                <label asp-for="SoLuong" class="control-label"></label>
+                <input asp-for="SoLuong" class="w3-input w3-border w3-border-blue w3-round" />
+                <span asp-validation-for="SoLuong" class="text-danger"></span>
+            </div>
+            <div class="w3-col l2 ">
+                <label asp-for="NhanVienID" class="control-label"></label>
+                <input asp-for="NhanVienID" class="w3-input w3-border w3-border-blue w3-round" />
+                <span asp-validation-for="NhanVienID" class="text-danger"></span>
+            </div>
+            
+            
+            <div class="w3-col l9 w3-right ">
+                <label asp-for="Gia" class="control-label"></label>
+                <input asp-for="Gia" class="w3-input w3-border w3-border-blue w3-round" />
+                <span asp-validation-for="Gia" class="text-danger"></span>
+            </div>
+            <div class="w3-col l9 w3-right">
+                <label asp-for="CreateDate" class="control-label"></label>
+                <input asp-for="CreateDate" class="w3-input w3-border w3-border-blue w3-round" />
+                <span asp-validation-for="CreateDate" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="w3-margin-top">
+            <a class="w3-btn w3-round w3-green w3-card-4" asp-action="Index">Quay lại</a>
+            <input type="submit" value="Create" class="w3-btn w3-blue w3-right w3-round w3-card-4" />
+        </div>
+    </form>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
