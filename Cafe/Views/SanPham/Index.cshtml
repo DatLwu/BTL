@@ -4,6 +4,47 @@
     ViewData["Title"] = "Index";
 }
 
+<style>
+    /* Định dạng bảng */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 2px solid #000; /* Viền đen đậm cho bảng */
+    }
+
+    /* Định dạng header của bảng */
+    .table th {
+        background-color: #654321; /* Màu nâu */
+        color: #fff; /* Màu chữ trắng */
+        text-align: left;
+        padding: 10px;
+        border-bottom: 2px solid #000; /* Đường viền dưới header đậm hơn */
+    }
+
+    /* Định dạng dòng trong bảng */
+    .table td {
+        border-bottom: 1px solid #000; /* Đường viền dưới mỗi dòng màu đen */
+        padding: 10px;
+        border-right: 1px solid #000; /* Viền kẻ giữa các cột */
+    }
+
+    /* Định dạng link trong cột thao tác */
+    .table td a {
+        margin-right: 5px;
+        text-decoration: none;
+        color: #007bff;
+    }
+
+    .table td a:hover {
+        text-decoration: underline;
+    }
+
+    /* Loại bỏ viền kẻ phía bên phải của cột cuối cùng */
+    .table td:last-child {
+        border-right: none;
+    }
+</style>
+
 <h1>Index</h1>
 
 <p>
@@ -25,23 +66,23 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SanPhamName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SoLuong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gia)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.SanPhamID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SanPhamID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SanPhamID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SanPhamName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gia)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SanPhamID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.SanPhamID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SanPhamID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -4,45 +4,48 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>KhachHang</h4>
+<div class="w3-row">
+    <h1><b>Khach hang/</b>Edit</h1>
+</div>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="KhachHangID" />
-            <div class="form-group">
-                <label asp-for="KhachHangName" class="control-label"></label>
+<div class="max-width-40 ud-center">
+    <div class="w3-container w3-blue w3-round">
+        <h2 class="w3-center">Edit HoaDon</h2>
+    </div>
+    <form asp-action="Edit" class="w3-container w3-card-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="KhachHangID" />
+
+        <div class="w3-row w3-margin-top">
+            <div class="w3-col l8">
+                <label asp-for="KhachHangName" class="control-label"></label>:
                 <input asp-for="KhachHangName" class="form-control" />
                 <span asp-validation-for="KhachHangName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SDT" class="control-label"></label>
-                <input asp-for="SDT" class="form-control" />
-                <span asp-validation-for="SDT" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+        </div>
+        <div class="w3-row w3-margin-top">
+            <label asp-for="Address" class="control-label"></label>
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <div class="w3-row w3-margin-top">
+            <label asp-for="SDT" class="control-label"></label>
+            <input asp-for="SDT" class="form-control" />
+            <span asp-validation-for="SDT" class="text-danger"></span>
+        </div>
+        <div class="w3-row w3-margin-top">
+            <label asp-for="Email" class="control-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <hr>
+        <div class="w3-row w3-margin-top w3-margin-bottom">
+            <a asp-action="Index" class="w3-btn w3-green w3-round">Quay lại</a>
+            <input type="submit" value="Save" class="w3-btn w3-blue w3-round w3-right" />
+        </div>
+    </form>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

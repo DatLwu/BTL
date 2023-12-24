@@ -4,39 +4,71 @@
     ViewData["Title"] = "Details";
 }
 
+<style>
+    body {
+        background-color: #f7f7f7; /* Màu nền xám nhạt */
+        color: #333; /* Màu chữ */
+        font-family: Arial, sans-serif; /* Font chữ */
+        padding: 20px;
+    }
+
+    /* CSS cho bảng */
+    table {
+        width: 60%;
+        margin-top: 20px;
+        border: 2px solid #654321; /* Viền nâu */
+        border-collapse: collapse;
+        background-color: #fff; /* Màu nền trắng cho bảng */
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #654321; /* Đường viền dưới mỗi dòng là màu nâu */
+    }
+
+    th {
+        background-color: #f2f2f2; /* Màu nền xám nhạt cho header */
+        color: #333; /* Màu chữ */
+    }
+
+    /* CSS cho link "Back to List" */
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color: #654321; /* Màu nền nâu */
+        color: #fff; /* Màu chữ */
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+    a:hover {
+        background-color: #543210; /* Màu nền nâu nhạt khi hover */
+    }
+</style>
+
 <h1>Details</h1>
 
+<table>
+    <tr>
+        <th>NhanVienName</th>
+        <td>@Html.DisplayFor(model => model.NhanVienName)</td>
+    </tr>
+    <tr>
+        <th>Address</th>
+        <td>@Html.DisplayFor(model => model.Address)</td>
+    </tr>
+    <tr>
+        <th>SDT</th>
+        <td>@Html.DisplayFor(model => model.SDT)</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>@Html.DisplayFor(model => model.Email)</td>
+    </tr>
+</table>
+
 <div>
-    <h4>NhanVien</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NhanVienName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NhanVienName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SDT)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SDT)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.NhanVienID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

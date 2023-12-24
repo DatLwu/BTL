@@ -3,6 +3,51 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<style>
+    /* CSS cho bảng */
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 10px; /* Khoảng cách giữa các ô */
+        background-color: #654321; /* Màu nền nâu */
+        color: #ffffff; /* Màu chữ trắng */
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #8B4513; /* Màu nền nâu đậm cho header */
+    }
+
+    /* CSS cho input và button */
+    input[type="text"], input[type="email"], input[type="submit"] {
+        width: calc(100% - 24px); /* Độ rộng của input */
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #8B4513; /* Màu nền nâu đậm cho button */
+        color: #ffffff; /* Màu chữ trắng */
+        cursor: pointer;
+    }
+
+    /* CSS cho link "Back to List" */
+    a {
+        color: #8B4513; /* Màu chữ là nâu đậm */
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline; /* Hiển thị gạch chân khi hover */
+    }
+</style>
 
 <h1>Edit</h1>
 

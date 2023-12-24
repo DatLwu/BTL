@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cafe.Migrations
 {
     [DbContext(typeof(ApplicationDbcontext))]
-    [Migration("20231216135225_KhachHang_Create_Table")]
-    partial class KhachHang_Create_Table
+    [Migration("20231224085211_Create_table_HoaDon")]
+    partial class Create_table_HoaDon
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -135,19 +135,19 @@ namespace Cafe.Migrations
             modelBuilder.Entity("Cafe.Models.HoaDon", b =>
                 {
                     b.HasOne("Cafe.Models.KhachHang", "KhachHang")
-                        .WithMany("HoaDon")
+                        .WithMany()
                         .HasForeignKey("KhachHangID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Cafe.Models.NhanVien", "NhanVien")
-                        .WithMany("HoaDon")
+                        .WithMany()
                         .HasForeignKey("NhanVienID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Cafe.Models.SanPham", "SanPham")
-                        .WithMany("HoaDon")
+                        .WithMany()
                         .HasForeignKey("SanPhamID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -157,21 +157,6 @@ namespace Cafe.Migrations
                     b.Navigation("NhanVien");
 
                     b.Navigation("SanPham");
-                });
-
-            modelBuilder.Entity("Cafe.Models.KhachHang", b =>
-                {
-                    b.Navigation("HoaDon");
-                });
-
-            modelBuilder.Entity("Cafe.Models.NhanVien", b =>
-                {
-                    b.Navigation("HoaDon");
-                });
-
-            modelBuilder.Entity("Cafe.Models.SanPham", b =>
-                {
-                    b.Navigation("HoaDon");
                 });
 #pragma warning restore 612, 618
         }

@@ -4,45 +4,96 @@
     ViewData["Title"] = "Create";
 }
 
+<style>
+    body {
+        background-color: #eee; /* Màu nền trắng nhạt */
+        color: #333; /* Màu chữ */
+        font-family: Arial, sans-serif; /* Font chữ */
+    }
+
+    /* CSS cho bảng */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border: 2px solid #654321; /* Viền màu nâu */
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #654321; /* Đường viền dưới mỗi dòng màu nâu */
+    }
+
+    th {
+        background-color: #654321; /* Màu nền nâu đậm cho header */
+        color: #fff; /* Màu chữ trắng */
+    }
+
+    /* CSS cho input */
+    input[type="text"], input[type="email"], input[type="submit"] {
+        width: calc(100% - 24px); /* Độ rộng của input */
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #654321; /* Viền màu nâu cho input */
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    /* CSS cho button */
+    input[type="submit"] {
+        background-color: #654321; /* Màu nền nâu đậm cho button */
+        color: #fff; /* Màu chữ trắng */
+        cursor: pointer;
+        border: none;
+    }
+
+    /* CSS cho link "Back to List" */
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color: #654321; /* Màu nền nâu đậm cho link */
+        color: #fff; /* Màu chữ trắng */
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+    a:hover {
+        background-color: #543210; /* Màu nền nâu nhạt khi hover */
+    }
+</style>
+
 <h1>Create</h1>
 
-<h4>NhanVien</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="NhanVienID" class="control-label"></label>
-                <input asp-for="NhanVienID" class="form-control" />
-                <span asp-validation-for="NhanVienID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NhanVienName" class="control-label"></label>
-                <input asp-for="NhanVienName" class="form-control" />
-                <span asp-validation-for="NhanVienName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SDT" class="control-label"></label>
-                <input asp-for="SDT" class="form-control" />
-                <span asp-validation-for="SDT" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<table>
+    <tr>
+        <th>NhanVienID</th>
+        <td><input asp-for="NhanVienID" /></td>
+    </tr>
+    <tr>
+        <th>NhanVienName</th>
+        <td><input asp-for="NhanVienName" /></td>
+    </tr>
+    <tr>
+        <th>Address</th>
+        <td><input asp-for="Address" /></td>
+    </tr>
+    <tr>
+        <th>SDT</th>
+        <td><input asp-for="SDT" /></td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td><input asp-for="Email" /></td>
+    </tr>
+</table>
+
+<form asp-action="Create">
+    <div>
+        <input type="submit" value="Create" />
     </div>
-</div>
+</form>
 
 <div>
     <a asp-action="Index">Back to List</a>
@@ -51,3 +102,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+

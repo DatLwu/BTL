@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "W9O0WTZKLXeGzqFn6enbphx3cbH/kZOF3BHNu4k5lvWtrar3RbQQUYyJd+ua7yBeqiH3pTyuBsro9mdC1rQbgQ==",
+  "dgSpecHash": "01soVUPc5dN3NG0mN0KEsdl8J8IWn0W+gB/zy4c/733LtiRZdk4KBpfCFFv3kJ6O9v/wnoZTqkaAo+gaD6Tlqw==",
   "success": true,
-  "projectFilePath": "d:\\BTL_PTPMQL\\BTL\\Cafe\\Cafe.csproj",
+  "projectFilePath": "D:\\BTL_PTPMQL\\BTL\\Cafe\\Cafe.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Win10\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Win10\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
