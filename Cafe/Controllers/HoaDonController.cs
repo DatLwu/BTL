@@ -24,11 +24,7 @@ namespace Cafe.Controllers
         private ExcelProcess _excelPro = new ExcelProcess();
 
         // GET: HoaDon
-        public async Task<IActionResult> Index()
-        {
-            var applicationDbcontext = _context.HoaDon.Include(h => h.KhachHang).Include(h => h.NhanVien).Include(h => h.SanPham);
-            return View(await applicationDbcontext.ToListAsync());
-        }
+    
 
         // GET: HoaDon/Details/5
         public async Task<IActionResult> Details(string id)
@@ -251,7 +247,7 @@ namespace Cafe.Controllers
             };
             int pagesize = (PageSize ?? 3);
             ViewBag.psize= pagesize;
-            var model = _context.KhachHang.ToList().ToPagedList(page ?? 1, pagesize);
+            var model = _context.HoaDon.ToList().ToPagedList(page ?? 1, pagesize);
             return View(model);
         }
     }

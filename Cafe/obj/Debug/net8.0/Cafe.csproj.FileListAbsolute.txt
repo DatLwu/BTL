@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 D:\BTL_PTPMQL\Cafe\bin\Debug\net8.0\appsettings.Development.json
 D:\BTL_PTPMQL\Cafe\bin\Debug\net8.0\appsettings.json
 D:\BTL_PTPMQL\Cafe\bin\Debug\net8.0\Cafe.staticwebassets.runtime.json
@@ -554,7 +556,6 @@ E:\baitaplonc#\BTL\Cafe\obj\Debug\net8.0\refint\Cafe.dll
 E:\baitaplonc#\BTL\Cafe\obj\Debug\net8.0\Cafe.pdb
 E:\baitaplonc#\BTL\Cafe\obj\Debug\net8.0\Cafe.genruntimeconfig.cache
 E:\baitaplonc#\BTL\Cafe\obj\Debug\net8.0\ref\Cafe.dll
-<<<<<<< HEAD
 E:\baitaplonc#\BTL\Cafe\bin\Debug\net8.0\EPPlus.dll
 E:\baitaplonc#\BTL\Cafe\bin\Debug\net8.0\EPPlus.Interfaces.dll
 E:\baitaplonc#\BTL\Cafe\bin\Debug\net8.0\EPPlus.System.Drawing.dll
@@ -563,7 +564,7 @@ E:\baitaplonc#\BTL\Cafe\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
 E:\baitaplonc#\BTL\Cafe\bin\Debug\net8.0\X.PagedList.dll
 E:\baitaplonc#\BTL\Cafe\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
 E:\baitaplonc#\BTL\Cafe\obj\Debug\net8.0\Cafe.MvcApplicationPartsAssemblyInfo.cs
-=======
+>>>>>>> 462e3da275924b1c51c3ffc466bd5d3f18d08f62
 D:\BTL_PTPMQL\BTL\Cafe\bin\Debug\net8.0\appsettings.Development.json
 D:\BTL_PTPMQL\BTL\Cafe\bin\Debug\net8.0\appsettings.json
 D:\BTL_PTPMQL\BTL\Cafe\bin\Debug\net8.0\Cafe.staticwebassets.runtime.json

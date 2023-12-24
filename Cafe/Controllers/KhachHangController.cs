@@ -23,10 +23,7 @@ namespace Cafe.Controllers
         }
         private ExcelProcess _excelPro = new ExcelProcess();
         // GET: KhachHang
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.KhachHang.ToListAsync());
-        }
+
 
         // GET: KhachHang/Details/5
         public async Task<IActionResult> Details(string id)
@@ -215,8 +212,10 @@ namespace Cafe.Controllers
                 return File(stream,"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",fileName);
             }
         }  
-        public async Task<IActionResult> Index(int? page, int? PageSize){
-            ViewBag.PageSize= new List<SelectListItem>(){
+        public async Task<IActionResult> Index(int? page, int? PageSize)
+        {
+            ViewBag.PageSize= new List<SelectListItem>()
+            {
                 new SelectListItem() { Value="3", Text="3"},
                 new SelectListItem() { Value="5", Text="5"},
                 new SelectListItem() { Value="10", Text="10"},

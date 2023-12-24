@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cafe.Migrations
 {
     [DbContext(typeof(ApplicationDbcontext))]
-    [Migration("20231216135225_KhachHang_Create_Table")]
-    partial class KhachHang_Create_Table
+    [Migration("20231224092118_Create_table_HoaDon")]
+    partial class Create_table_HoaDon
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
