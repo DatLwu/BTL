@@ -7,6 +7,30 @@
 }
 
 <style>
+    /* Định dạng cho phần download file */
+a.btn.btn-primary {
+    background-color: #D2B48C; /* Màu nâu đậm */
+    color: #fff; /* Màu chữ trắng */
+    padding: 8px 15px; /* Để tạo khoảng cách xung quanh nút */
+    border-radius: 5px; /* Để làm cong góc cho nút */
+    text-decoration: none; /* Loại bỏ gạch chân (underline) */
+}
+
+a.btn.btn-primary:hover {
+    background-color: #FFF8DC; /* Màu nền khi di chuột qua */
+    color: #D2B48C; /* Màu chữ khi di chuột qua */
+}
+Bạn có thể th
+    /* Đổi màu nền và màu chữ của link */
+a {
+    color: #FF4500; /* Màu cam đậm */
+}
+
+/* Đổi màu nền của button upload */
+input[type="submit"] {
+    background-color:  #654321; /* Màu vàng */
+    color:#fff /* Màu chữ đen */
+}
     /* Định dạng bảng */
     .table {
         width: 100%;
@@ -48,9 +72,19 @@
 </style>
 
 <h1>Index</h1>
-
+<hr />
+    <form asp-action="Upload" enctype="multipart/form-data">
+        <div class="row form-control">
+            <label class="col-sm-2">Import data from Excel:</label>
+            <input type="file" name="file" class="col-sm-4">
+            <input type="submit" value="Upload" class="btn btn-primary">
+        </div>
+    </form>
+<hr
+>
 <p>
     <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Download">Download file</a>
 </p>
 <table class="table">
     <thead>
@@ -95,7 +129,7 @@
     </tbody>
 </table>
 </div>
-@using (Html.BeginForm("Index", "Person", FormMethod.Get, new { id="form1"})){
+@using (Html.BeginForm("Index", "NhanVien", FormMethod.Get, new { id="form1"})){
     <div class="row">
         <div class="col-md-11">
             @Html.PagedListPager((IPagedList) Model, page => Url.Action("Index", new {page = page,

@@ -3,10 +3,40 @@
 @{
     ViewData["Title"] = "Create";
 }
+<style>
+    /* Base button style */
+.w3-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
 
+/* Button style for 'Create' */
+.w3-btn.w3-blue {
+    background-color: #2196F3; /* Button color for 'Create' */
+    color: white; /* Text color for 'Create' button */
+}
+
+/* Button style for 'Go Back' */
+.w3-btn.w3-green {
+    background-color: #4CAF50; /* Button color for 'Go Back' */
+    color: white; /* Text color for 'Go Back' button */
+}
+</style>
 <div class="w3-row">
     <H1><b>HoaDon/</b>create</H1>
 </div>
+<hr />
+    <form asp-action="Upload" enctype="multipart/form-data">
+        <div class="row form-control">
+            <label class="col-sm-2">Import data from Excel:</label>
+            <input type="file" name="file" class="col-sm-4">
+            <input type="submit" value="Upload" class="btn btn-primary">
+        </div>
+    </form>
+<hr
 <hr>
 <div class="max-width-40 ud-center">
     <div class=" w3-container w3-teal">
