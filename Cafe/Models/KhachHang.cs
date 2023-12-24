@@ -14,7 +14,7 @@ namespace Cafe.Models
         public string Address { get; set; }
         public string SDT { get; set; }
         public string Email {get; set;}
-        //public ICollection<HoaDon>? HoaDon {get; set ;}
+        public ICollection<HoaDon>? HoaDon {get; set ;}
 
     }
 }

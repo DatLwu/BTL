@@ -10,6 +10,6 @@ public class SanPham
     public string SanPhamName { get; set; }
     public string SoLuong { get; set; }
     public decimal Gia { get; set; }
-    //public ICollection<HoaDon>? HoaDon {get; set ;}
+    public ICollection<HoaDon>? HoaDon {get; set ;}
    
 }

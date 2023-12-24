@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cafe.Migrations
 {
     [DbContext(typeof(ApplicationDbcontext))]
-    [Migration("20231224084857_Create_table_KhachHang")]
+    [Migration("20231224091850_Create_table_KhachHang")]
     partial class Create_table_KhachHang
     {
         /// <inheritdoc />
