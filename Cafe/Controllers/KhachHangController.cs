@@ -23,10 +23,7 @@ namespace Cafe.Controllers
         }
         private ExcelProcess _excelPro = new ExcelProcess();
         // GET: KhachHang
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.KhachHang.ToListAsync());
-        }
+
 
         // GET: KhachHang/Details/5
         public async Task<IActionResult> Details(string id)
