@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Cafe.Data;
 using Cafe.Models;
+using X.PagedList;
 
 namespace Cafe.Controllers
 {
@@ -20,9 +21,22 @@ namespace Cafe.Controllers
         }
 
         // GET: NhanVien
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page, int? pageSize)
         {
-            return View(await _context.NhanVien.ToListAsync());
+            ViewBag.pageSize =new List<SelectListItem>()
+            {
+                new SelectListItem() { Value="3", Text= "3"},
+                new SelectListItem() { Value="5", Text= "5"},
+                new SelectListItem() { Value="10", Text= "10"},
+                new SelectListItem() { Value="15", Text= "15"},
+                new SelectListItem() { Value="25", Text= "25"},
+                new SelectListItem() { Value="50", Text= "50"},
+            };
+            int pagesize = (pageSize ?? 3 );
+            ViewBag.psize = pageSize;
+
+            var model = _context.NhanVien.ToList().ToPagedList(page ?? 1, pagesize);
+            return View(model);
         }
 
         // GET: NhanVien/Details/5
