@@ -223,7 +223,7 @@ namespace Cafe.Controllers
                 new SelectListItem() { Value="25", Text="25"},
                 new SelectListItem() { Value="50", Text="50"},
             };
-            int pagesize = (PageSize ?? 3);
+            int pagesize = (PageSize ?? 5);
             ViewBag.psize= pagesize;
             var model = _context.KhachHang.ToList().ToPagedList(page ?? 1, pagesize);
             return View(model);

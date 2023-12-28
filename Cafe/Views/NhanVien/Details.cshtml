@@ -32,23 +32,14 @@
         color: #333; /* Màu chữ */
     }
 
-    /* CSS cho link "Back to List" */
-    a {
-        display: inline-block;
-        padding: 10px 20px;
-        margin-top: 20px;
-        background-color: #654321; /* Màu nền nâu */
-        color: #fff; /* Màu chữ */
-        text-decoration: none;
-        border-radius: 4px;
-    }
+    
 
     a:hover {
         background-color: #543210; /* Màu nền nâu nhạt khi hover */
     }
 </style>
 
-<h1>Details</h1>
+<h1>Thông tin nhân viên</h1>
 
 <table>
     <tr>
@@ -70,5 +61,7 @@
 </table>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to List</a>  |
+    <a asp-action="Edit" asp-route-id="@Model?.NhanVienID">Edit</a>
+    
 </div>

@@ -21,6 +21,7 @@ namespace Cafe.Models
         public string Gia { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime CreateDate { get; set; }
-        public string? SanPhamName { get; internal set; }
+   
+  
     }
 }

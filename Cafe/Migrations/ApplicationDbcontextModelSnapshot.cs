@@ -113,7 +113,8 @@ namespace Cafe.Migrations
                     b.Property<string>("SanPhamID")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Gia")
+                    b.Property<string>("Gia")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SanPhamName")

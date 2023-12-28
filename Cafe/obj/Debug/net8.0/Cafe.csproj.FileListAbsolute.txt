@@ -834,7 +834,6 @@ D:\BTL_PTPMQL\BTL\Cafe\obj\Debug\net8.0\Cafe.MvcApplicationPartsAssemblyInfo.cs
 D:\BTL_PTPMQL\BTL\Cafe\obj\Debug\net8.0\Cafe.MvcApplicationPartsAssemblyInfo.cache
 D:\BTL_PTPMQL\BTL\Cafe\obj\Debug\net8.0\Cafe.RazorAssemblyInfo.cache
 D:\BTL_PTPMQL\BTL\Cafe\obj\Debug\net8.0\Cafe.RazorAssemblyInfo.cs
-D:\BTL_PTPMQL\BTL\Cafe\obj\Debug\net8.0\Cafe.sourcelink.json
 D:\BTL_PTPMQL\BTL\Cafe\obj\Debug\net8.0\staticwebassets.build.json
 D:\BTL_PTPMQL\BTL\Cafe\obj\Debug\net8.0\staticwebassets.development.json
 D:\BTL_PTPMQL\BTL\Cafe\obj\Debug\net8.0\staticwebassets\msbuild.Cafe.Microsoft.AspNetCore.StaticWebAssets.props

@@ -7,9 +7,9 @@
 
 <div class="w3-container">
     <div class="w3-row">
-        <h1>Index</h1>
-        <a asp-action="Create" class="w3-btn w3-border w3-border-blue w3-round w3-tiny w3-horver-blue">+ Add new</a>
-        <a asp-action="Download" class="w3-btn w3-border w3-border-blue w3-round w3-right w3-tiny w3-horver-blue">Download</a>
+        <h1>Danh sách khách hàng</h1>
+        <a asp-action="Create" class="w3-btn w3-border w3-border-blue w3-round w3-tiny w3-horver-blue">+ Thêm mới</a>
+        <a asp-action="Download" class="w3-btn w3-border w3-border-blue w3-round w3-right w3-tiny w3-horver-blue fa fa-download"> Xuất ra file excel</a>
 
     </div>
     <hr/>
@@ -17,7 +17,7 @@
         <thead>
             <tr class="w3-blue">
                 <th class="w3-col l1">KhID</th>
-                <th class="w3-col l2">KhachHangName</th>
+                <th class="w3-col l3">KhachHangName</th>
                 <th class="w3-col l2">SDT</th>
                 <th class="w3-col l2">Email</th>
                 <th class="w3-col l2">Address<th>
@@ -29,12 +29,13 @@
             {
                 <tr>
                     <td class="w3-col l1">@item.KhachHangID</td>
-                    <td class="w3-col l2">@item.KhachHangName</td>
+                    <td class="w3-col l3">@item.KhachHangName</td>
                     <td class="w3-col l2">@item.SDT</td>
                     <td class="w3-col l2">@item.Email</td>
                     <td class="w3-col l2">@item.Address</td> 
                     <td class="w3-col l2">
                         <a asp-action="Edit" asp-route-id="@item.KhachHangID" class="w3-button w3-green w3-round-large w3-small"><i class="fa fa-edit"></i></a>
+                        <a asp-action="Details" asp-route-id="@item.KhachHangID" class="w3-button w3-green w3-round-large w3-small"><i class="fa fa-eye"></i></a>
                         <a asp-action="Delete" asp-route-id="@item.KhachHangID" class="w3-button w3-red w3-round-large w3-small"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>

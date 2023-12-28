@@ -46,7 +46,7 @@
           }
         }
       },
-      "EPPlus/7.0.5": {
+      "EPPlus/7.0.4": {
         "type": "package",
         "dependencies": {
           "EPPlus.Interfaces": "6.1.1",
@@ -3186,15 +3186,15 @@
         "lib/netstandard2.0/Azure.Identity.xml"
       ]
     },
-    "EPPlus/7.0.5": {
-      "sha512": "9mmFMS0TkcWSn/izLdej/znBpzuwuJJud5QicgYJw2jtpW/+Jtbgs1u7Wt7Hnm7FyAVyWQ3PU5FDiqORZ7M1cw==",
+    "EPPlus/7.0.4": {
+      "sha512": "1m/1jdbK9LkRLb6DllmEFYoS/KqA2zaypmGwC+h4P13dW5IObJRzAjZ5VdgdA7fkKg9GUm2YXa8/JqMv5zYv3Q==",
       "type": "package",
-      "path": "epplus/7.0.5",
+      "path": "epplus/7.0.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "EPPlusLogo.png",
-        "epplus.7.0.5.nupkg.sha512",
+        "epplus.7.0.4.nupkg.sha512",
         "epplus.nuspec",
         "lib/net35/EPPlus.dll",
         "lib/net35/EPPlus.xml",
@@ -8647,7 +8647,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "EPPlus >= 7.0.5",
+      "EPPlus >= 7.0.4",
       "Microsoft.EntityFrameworkCore >= 8.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.0",
       "Microsoft.EntityFrameworkCore.SQLite >= 8.0.0",
@@ -8658,19 +8658,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\Win10\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\baitaplonc#\\BTL\\Cafe\\Cafe.csproj",
+      "projectUniqueName": "D:\\BTL_PTPMQL\\BTL\\Cafe\\Cafe.csproj",
       "projectName": "Cafe",
-      "projectPath": "E:\\baitaplonc#\\BTL\\Cafe\\Cafe.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "E:\\baitaplonc#\\BTL\\Cafe\\obj\\",
+      "projectPath": "D:\\BTL_PTPMQL\\BTL\\Cafe\\Cafe.csproj",
+      "packagesPath": "C:\\Users\\Win10\\.nuget\\packages\\",
+      "outputPath": "D:\\BTL_PTPMQL\\BTL\\Cafe\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Win10\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -8696,7 +8696,7 @@
         "dependencies": {
           "EPPlus": {
             "target": "Package",
-            "version": "[7.0.5, )"
+            "version": "[7.0.4, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -8753,13 +8753,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file E:\\baitaplonc#\\BTL\\Cafe\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

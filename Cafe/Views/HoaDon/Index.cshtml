@@ -7,9 +7,9 @@
 
 <div class="w3-container">
     <div class="w3-row">
-        <h1>Index</h1>
-        <a asp-action="Create" class="w3-btn w3-border w3-border-blue w3-round w3-tiny w3-horver-blue">+ Add new</a>
-        <a asp-action="Download" class="w3-btn w3-border w3-border-blue w3-round w3-right w3-tiny w3-horver-blue">Download</a>
+        <h1>Danh sách hóa đơn</h1>
+        <a asp-action="Create" class="w3-btn w3-border w3-border-blue w3-round w3-tiny w3-horver-blue">+ Thêm mới</a>
+        <a asp-action="Download" class="w3-btn w3-border w3-border-blue w3-round w3-right w3-tiny w3-horver-blue fa fa-download">   Xuất ra file excel</a>
 
     </div>
     <hr/>
@@ -23,7 +23,6 @@
                 <th class="w3-col l1">SoLuong</th>
                 <th class="w3-col l2">Gia</th>
                 <th class="w3-col l3">CreateDate</th>
-                <th class="w3-col l2">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -39,6 +38,7 @@
                     <td class="w3-col l3">@item.CreateDate</td>
                     <td class="w3-col l2">
                         <a asp-action="Edit" asp-route-id="@item.HoaDonID" class="w3-button w3-green w3-round-large w3-small"><i class="fa fa-edit"></i></a>
+                        <a asp-action="Details" asp-route-id="@item.HoaDonID" class="w3-button w3-green w3-round-large w3-small"><i class="fa fa-eye"></i></a>
                         <a asp-action="Delete" asp-route-id="@item.HoaDonID" class="w3-button w3-red w3-round-large w3-small"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>

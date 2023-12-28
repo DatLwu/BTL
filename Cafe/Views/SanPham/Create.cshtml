@@ -3,117 +3,52 @@
 @{
     ViewData["Title"] = "Create";
 }
-<style>
-/* CSS for create.html */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Màu nền trắng */
-    color: #333; /* Màu chữ */
-    margin: 0;
-    padding: 0;
-}
 
-h1 {
-    color: #654321; /* Màu nâu cho tiêu đề h1 */
-}
-
-h4 {
-    color: #654321; /* Màu nâu cho tiêu đề h4 */
-}
-
-.row {
-    margin: 0 auto; /* Căn lề giữa trang */
-    max-width: 800px; /* Độ rộng tối đa của khối */
-}
-
-.col-md-4 {
-    width: 45%; /* Độ rộng của khối */
-    float: left;
-    margin: 20px;
-    background-color: #654321; /* Màu nền nâu cho khối */
-    padding: 20px; /* Khoảng cách bên trong khối */
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.control-label {
-    color: white; /* Màu chữ trắng cho nhãn */
-}
-
-.form-control {
-    width: calc(100% - 16px); /* Độ rộng của input */
-    padding: 8px;
-    border: 1px solid #543; /* Viền màu nâu */
-    border-radius: 4px;
-}
-
-.btn-primary {
-    background-color: #543; /* Màu nâu cho nút */
-    color: white; /* Màu chữ trắng cho nút */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s; /* Hiệu ứng chuyển đổi màu nền */
-}
-
-.btn-primary:hover {
-    background-color: #432; /* Màu nâu tối khi hover */
-}
-
-a {
-    color: #654321; /* Màu nâu cho các liên kết */
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline; /* Gạch chân khi hover */
-}
-</style>
-
-<h1>Create</h1>
-
-<h4>SanPham</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="SanPhamID" class="control-label"></label>
-                <input asp-for="SanPhamID" class="form-control" />
-                <span asp-validation-for="SanPhamID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SanPhamName" class="control-label"></label>
-                <input asp-for="SanPhamName" class="form-control" />
-                <span asp-validation-for="SanPhamName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoLuong" class="control-label"></label>
-                <input asp-for="SoLuong" class="form-control" />
-                <span asp-validation-for="SoLuong" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Gia" class="control-label"></label>
-                <input asp-for="Gia" class="form-control" />
-                <span asp-validation-for="Gia" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+<div class="w3-row">
+    <H1><b>Sản Phẩm/</b>create</H1>
+</div>
+<hr>
+<div class="max-width-40 ud-center">
+    <div class=" w3-container w3-brown">
+        <h2>Thêm sản phẩm mới</h2>
+       <form asp-action="Upload" enctype="multipart/form-data">
+            <input type="file" name="file" class="col-sm-4">
+            <input type="submit" value="Upload" class="btn btn-primary ">
         </form>
     </div>
+    <form asp-action="Create" class="w3-container w3-card-4 w3-padding ">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="w3-row">
+            <div class="w3-col l2">
+                <label asp-for="SanPhamID" class="control-label"></label>
+                <input asp-for="SanPhamID" class="w3-input w3-border w3-border-brown w3-round" />
+                <span asp-validation-for="SanPhamID" class="text-danger"></span>
+            </div>
+
+            <div class="w3-col l8 w3-right">
+                <label asp-for="SanPhamName" class="control-label"></label>
+                <input asp-for="SanPhamName" class="w3-input w3-border w3-border-brown w3-round" />
+                <span asp-validation-for="SanPhamName" class="text-danger"></span>
+            </div>
+            <div class="w3-col l8 w3-right ">
+                <label asp-for="SoLuong" class="control-label"></label>
+                <input asp-for="SoLuong" class="w3-input w3-border w3-border-brown w3-round" />
+                <span asp-validation-for="SoLuong" class="text-danger"></span>
+            </div>
+              <div class="w3-col l3 ">
+                <label asp-for="Gia" class="control-label"></label>
+                <input asp-for="Gia" class="w3-input w3-border w3-border-brown w3-round" />
+                <span asp-validation-for="Gia" class="text-danger"></span>
+            </div>
+            
+        </div>
+        <div class="w3-margin-top">
+            <a class="w3-btn w3-round w3-brown w3-card-4" asp-action="Index">Quay lại</a>
+            <input type="submit" value="Create" class="w3-btn w3-brown w3-right w3-round w3-card-4" />
+        </div>
+    </form>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
